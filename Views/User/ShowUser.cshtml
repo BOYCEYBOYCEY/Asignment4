@@ -1,0 +1,216 @@
+﻿@model IEnumerable<Asign4Vishal.Models.User>
+
+@{
+    ViewBag.Title = "ShowUser";
+}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Traffic Fine System</title>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="css/myStyle.css" rel="stylesheet" type="text/css" />
+    <style>
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1><b>Traffic Fine System</b></h1>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pull-right social" style="padding-top:10px;">
+                        <a>Welcome</a>
+                        <a><i class="fa fa-user"></i>&nbsp;&nbsp;User Name</a>|
+                        <a href="Login.html"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container bg">
+            <!--<div class="row text-center">
+                <div class="col-lg-12">
+
+                </div>
+            </div>-->
+            <!-- <script>
+             $(document).ready(function(e) {
+                 $("#tbl").hide();
+
+                 $("#submit").click(function(e) {
+                     $("#tbl").show();
+                 });
+
+             });-->
+            </script>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 bd">
+                    <h4 class="text-danger">TFS</h4>
+                    <hr style="border-color:#933" />
+                    <a href="InitiateFine.html">Initiate Fine</a><hr class="hr1" />
+                    <a href="UpdateFT.html">Update Fine Transaction</a><hr class="hr1" />
+                    <a href="UpdatePR.html">Update Payment receipt</a><hr class="hr1" />
+                    <a href="ConflictCase.html">Conflict Case</a><hr class="hr1" />
+                    <a>Reports</a><hr class="hr1" />
+                    <a>User Admin</a><hr class="hr1" />
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <div class="row bar">
+                        <h3><span class="fa fa-users text-danger"></span>&nbsp; User Admin</h3>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="table-responsive" id="tbl">
+                                <table class="table">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.UserName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Password)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Designation)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UserName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Password)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Designation)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+
+
+
+                            </div>
+                            @Html.ActionLink("Add User", "CreateUser")
+                           @* <a class="btn btn-default" href="AddUser.cshtml" target="_self">ADD USER</a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>ShowUser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+            </td>
+        </tr>
+    }
+
+</table>*@
